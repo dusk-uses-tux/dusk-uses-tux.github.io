@@ -1,5 +1,5 @@
 setopt prompt_subst
-# 1️⃣ icon map
+# icon mapping
 typeset -A ICONS
 ICONS=(
 ".config" ""
@@ -51,7 +51,7 @@ ICONS=(
 ".minecraft" "󰍳"
 )
 
-# 2️⃣ function to build path with icons
+# build path with icons
 path_with_icons() {
   local path="${PWD/#$HOME/~}" segments=() seg out=() result
   IFS='/' read -r -A segments <<< "$path"
@@ -71,7 +71,7 @@ path_with_icons() {
   echo "$result"
 }
 
-# 3️⃣ prompt
+# actual prompt
 PROMPT='[ 󰣇 ][ %* ][ $(path_with_icons) ]
 > '
 
@@ -105,9 +105,8 @@ fpath=(~/.zsh/zsh-completions $fpath)
 # -----------------------------
 # Aliases
 # -----------------------------
-alias ¿='yay -S'
-alias ¶='sudo pacman -S'
-alias pamcan='pacman'
+alias ys='yay -S'
+alias ff='fastfetch'
 alias clock='tty-clock -c -C 7 -t -B'
 alias gc='git clone'
 alias ls='eza --icons'
